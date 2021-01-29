@@ -7,11 +7,16 @@
 // })
 
 
-var SubTotal = 0;
+var subTotal;
 // var ticketQuantity = 0;
+var amountForSClass = 0;
+var amountForEconomyClass = 0;
 
 function getId(id) {
     return document.getElementById(id);
+}
+function getAmount(inputId) {
+
 }
 
 function eventHandler(btnId, positiveNegativeValue, inputId, ticketPrice) {
@@ -25,17 +30,30 @@ function eventHandler(btnId, positiveNegativeValue, inputId, ticketPrice) {
             ticketQuantity = 0;
 
         getId(inputId).value = ticketQuantity;
-        subTotal += ticketPrice * ticketQuantity;
 
 
 
+        if (inputId == "f-class-input") {
+            amountForSClass = ticketPrice * ticketQuantity;
+        }
+        else if (inputId == "s-class-input") {
+            amountForEconomyClass = ticketPrice * ticketQuantity;
+        }
+
+        subTotal = amountForSClass + amountForEconomyClass;
+
+        if (subTotal >= 0)
+            getId("sub-total").innerText = subTotal;
+        else subTotal = 0;
     })
 
+
+
 }
-eventHandler("f-class-plus-btn", "positive", "f-class-input",150);
-eventHandler("f-class-minus-btn", "negative","f-class-input",150);
-eventHandler("s-class-plus-btn", "positive", "s-class-input",100);
-eventHandler("s-class-minus-btn", "negative", "s-class-input",100);
+eventHandler("f-class-plus-btn", "positive", "f-class-input", 150);
+eventHandler("f-class-minus-btn", "negative", "f-class-input", 150);
+eventHandler("s-class-plus-btn", "positive", "s-class-input", 100);
+eventHandler("s-class-minus-btn", "negative", "s-class-input", 100);
 
 // s-class-minus-btn
 // s-class-input
