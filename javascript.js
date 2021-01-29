@@ -15,10 +15,22 @@ var amountForEconomyClass = 0;
 function getId(id) {
     return document.getElementById(id);
 }
+
 function getAmount(ticketPrice, ticketQuantity) {
 
     return ticketPrice * ticketQuantity;
 
+}
+
+function  getSubtotal(inputId,ticketPrice,ticketQuantity){
+     if (inputId == "f-class-input") {
+            amountForSClass = getAmount(ticketPrice, ticketQuantity);
+        }
+        else if (inputId == "s-class-input") {
+            amountForEconomyClass = getAmount(ticketPrice, ticketQuantity);
+        }
+
+       return amountForSClass + amountForEconomyClass;
 }
 
 function eventHandler(btnId, positiveNegativeValue, inputId, ticketPrice) {
@@ -33,19 +45,10 @@ function eventHandler(btnId, positiveNegativeValue, inputId, ticketPrice) {
 
         getId(inputId).value = ticketQuantity;
 
-
-        if (inputId == "f-class-input") {
-            amountForSClass = getAmount(ticketPrice, ticketQuantity);
-        }
-        else if (inputId == "s-class-input") {
-            amountForEconomyClass = getAmount(ticketPrice, ticketQuantity);
-        }
-
-        subTotal = amountForSClass + amountForEconomyClass;
+        subTotal = getSubtotal(inputId,ticketPrice,ticketQuantity);
 
         if (subTotal >= 0)
             getId("sub-total").innerText = subTotal;
-        else subTotal = 0;
     })
 
 
