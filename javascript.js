@@ -15,7 +15,9 @@ var amountForEconomyClass = 0;
 function getId(id) {
     return document.getElementById(id);
 }
-function getAmount(inputId) {
+function getAmount(ticketPrice, ticketQuantity) {
+
+    return ticketPrice * ticketQuantity;
 
 }
 
@@ -32,12 +34,11 @@ function eventHandler(btnId, positiveNegativeValue, inputId, ticketPrice) {
         getId(inputId).value = ticketQuantity;
 
 
-
         if (inputId == "f-class-input") {
-            amountForSClass = ticketPrice * ticketQuantity;
+            amountForSClass = getAmount(ticketPrice, ticketQuantity);
         }
         else if (inputId == "s-class-input") {
-            amountForEconomyClass = ticketPrice * ticketQuantity;
+            amountForEconomyClass = getAmount(ticketPrice, ticketQuantity);
         }
 
         subTotal = amountForSClass + amountForEconomyClass;
