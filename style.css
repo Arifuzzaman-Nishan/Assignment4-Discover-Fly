@@ -131,10 +131,8 @@ nav ul li a:hover, a.active{
     border-radius: 10px;
     font-weight: 800;
     color:rgb(51, 50, 50);
-    box-shadow: 10px 20px 20px gray;
     margin: 5% auto;
     padding: 50px;
-    /* background-color: grey; */
     width: 60%;
 
 }
@@ -145,4 +143,8 @@ nav ul li a:hover, a.active{
 .style-information span{
     font-size: 20px;
     color: rgb(60, 154, 185);
+}
+.icon-size{
+    font-size: 70px;
+    color: green;
 }
